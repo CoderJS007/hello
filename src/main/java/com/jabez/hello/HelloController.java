@@ -24,6 +24,7 @@ public class HelloController {
         return "Welcome "+ name + "!";
     }
 
+    @GetMapping("/json")
     public Greeting getJson(){
         return new Greeting("Hello from Spring Boot", "Backend");
     }
