@@ -1,15 +1,32 @@
 package com.jabez.hello;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
+    
+    @GetMapping("/")
+    public String sayHello() {
+        return "Hello from Spring Boot on Render!";
+    }
+    
     @GetMapping("/greet")
-    public String greetUser(@RequestParam(defaultValue = "Guest") String name) {
+    public String greetUser(@RequestParam String name) {
         return "Hello + " + name;
 
     }
+
+    @GetMapping("/greet{name}")
+    public String greetByPath(@PathVariable String name) {
+        return "Welcome "+ name + "!";
+    }
+
+    public Greeting getJson(){
+        return new Greeting("Hello from Spring Boot", "Backend");
+    }
+
     
 }
