@@ -30,7 +30,7 @@ public class HelloController {
         return new Greeting("Hello from Spring Boot", "Backend");
     }
 
-    @GetMapping("/greet")
+    @GetMapping("/greeting")
     public Greeting recieveGreeting(@RequestBody Greeting input){
         return new Greeting("Recieved your message: " + input.getMessage(), input.getSender());
     }
