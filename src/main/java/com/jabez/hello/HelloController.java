@@ -1,5 +1,5 @@
 package com.jabez.hello;
-
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +32,7 @@ public class HelloController {
     }
 
     @PostMapping("/greeting")
-    public Greeting recieveGreeting(@RequestBody Greeting input){
+    public Greeting recieveGreeting(@Valid @RequestBody Greeting input){
         return new Greeting("Recieved your message: " + input.getMessage(), input.getSender());
     }
 

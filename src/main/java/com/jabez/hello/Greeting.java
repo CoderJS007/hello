@@ -1,6 +1,9 @@
 package com.jabez.hello;
+import jakarta.validation.constraints.NotBlank;
+
 
 public class Greeting {
+    @NotBlank (message = "message cannot be blank")
     private String message;
     private String sender;
 
